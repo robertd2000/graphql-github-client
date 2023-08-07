@@ -5,14 +5,21 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '../../../shared/components'
-import { getViewer } from '../api'
+} from '../../../../shared/components'
+import { FC } from 'react'
+import { ViewerType } from '../..'
+import { ViewerCardSkeleton } from './viewer-card-skeleton'
 
-export const ViewerCard = () => {
-  const { data } = getViewer()
+export interface ViewerCardProps {
+  data: ViewerType | undefined
+  loading: boolean
+}
 
-  return (
-    <Card>
+export const ViewerCard: FC<ViewerCardProps> = ({ data, loading }) => {
+  return loading ? (
+    <ViewerCardSkeleton />
+  ) : (
+    <Card className="divide-y">
       <CardHeader className="text-center">
         <CardTitle>
           <img
@@ -25,7 +32,7 @@ export const ViewerCard = () => {
         <CardDescription>{data?.login}</CardDescription>
       </CardHeader>
       <CardContent>
-        <Link to="/stars">
+        <Link to="/stars" className="text-blue-500 hover:underline">
           {data?.starredRepositories.totalCount} starred repositories
         </Link>
       </CardContent>

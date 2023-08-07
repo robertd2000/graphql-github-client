@@ -10,6 +10,15 @@ export const VIEWER = gql`
       starredRepositories {
         totalCount
       }
+      repositories(first: 10) {
+        nodes {
+          id
+          nameWithOwner
+          owner {
+            avatarUrl
+          }
+        }
+      }
     }
   }
 `

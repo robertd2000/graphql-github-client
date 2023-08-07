@@ -19,7 +19,7 @@ export const Topics = () => {
             <TopicsSkeleton />
           ) : (
             data?.map((topic) => (
-              <CommandItem key={topic.url} className="block align-middle gap-1">
+              <CommandItem key={topic.id} className="block align-middle gap-1">
                 <div className="flex gap-2 align-middle mb-1">
                   <div className="w-[30px] h-[30px]">
                     <img

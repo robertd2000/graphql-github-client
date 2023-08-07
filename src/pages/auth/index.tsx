@@ -2,8 +2,7 @@ import { OAuthForm } from '../../features/auth/ui'
 
 const AuthPage = () => {
   return (
-    <div>
-      Autj
+    <div className="">
       <OAuthForm />
     </div>
   )

@@ -18,7 +18,7 @@ export const Explore = () => {
         </CardTitle>
         <CardDescription>
           <Link to={'/search'}>
-            <button className="bg-green-500 py-2 px-4 rounded text-white mt-4 font-bold">
+            <button className="bg-green-500 py-1 px-4 rounded text-white mt-4 font-bold">
               Explore
             </button>
           </Link>

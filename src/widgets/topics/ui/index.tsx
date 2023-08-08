@@ -12,7 +12,7 @@ export const Topics = () => {
   const { data, loading } = getTopics()
 
   return (
-    <Command className="rounded-lg border shadow-md">
+    <Command className="rounded-lg border shadow-md h-fit">
       <CommandList>
         <CommandGroup heading="Topics" className="divide-y">
           {loading ? (

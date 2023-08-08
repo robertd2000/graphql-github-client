@@ -10,7 +10,10 @@ export const VIEWER = gql`
       starredRepositories {
         totalCount
       }
-      repositories(first: 10) {
+      topRepositories(
+        first: 10
+        orderBy: { direction: ASC, field: UPDATED_AT }
+      ) {
         nodes {
           id
           nameWithOwner

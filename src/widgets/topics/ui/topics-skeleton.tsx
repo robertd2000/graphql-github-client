@@ -11,10 +11,10 @@ export const TopicsSkeleton = () => {
           <Skeleton className="h-4 w-[200px]" />
         </div>
       </div>
-      <p className="text-sm text-muted-foreground ml-14">
+      <div className="text-sm text-muted-foreground ml-14">
         <Skeleton className="h-4 w-[80%] mb-2" />
         <Skeleton className="h-4 w-[80%]" />
-      </p>
+      </div>
     </CommandItem>
   ))
 }

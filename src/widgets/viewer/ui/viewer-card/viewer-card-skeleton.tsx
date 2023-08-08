@@ -9,7 +9,7 @@ import {
 
 export const ViewerCardSkeleton = () => {
   return (
-    <Card className="divide-y">
+    <Card className="divide-y min-h-[250px]">
       <CardHeader className="text-center">
         <CardTitle>
           <Skeleton className=" h-[100px] w-[100px] rounded-full object-contain m-2  mx-auto" />
@@ -21,7 +21,7 @@ export const ViewerCardSkeleton = () => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Skeleton className="h-4" />
+        <Skeleton className="h-4 mt-3" />
       </CardContent>
     </Card>
   )

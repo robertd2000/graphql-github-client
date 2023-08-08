@@ -8,18 +8,18 @@ export interface ViewerType {
   avatarUrl: string
   id: string
   starredRepositories: ViewerStarredRepositories
-  repositories: ViewerRepositories
+  topRepositories: ViewerTopRepositories
 }
 
-export interface ViewerRepositories {
-  nodes: ViewerRepositoriesType[]
+export interface ViewerTopRepositories {
+  nodes: ViewerRepositoryType[]
 }
 
 export interface ViewerStarredRepositories {
   totalCount: number
 }
 
-export interface ViewerRepositoriesType {
+export interface ViewerRepositoryType {
   id: string
   nameWithOwner: string
   owner: Owner

@@ -9,7 +9,7 @@ export const Viewer = () => {
     <div>
       <ViewerCard data={data} loading={loading} />
       <ViewerRepositories
-        repositories={data?.repositories.nodes}
+        repositories={data?.topRepositories.nodes}
         loading={false}
       />
     </div>

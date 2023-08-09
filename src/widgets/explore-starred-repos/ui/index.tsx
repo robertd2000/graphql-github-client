@@ -1,5 +1,5 @@
+import { RepositoryCard } from '../../../entities/repository-card'
 import { getExploreStarredRepos } from '../api'
-import { RepositoryCard } from '../../../shared/ui/repository-card'
 import { ExploreStarredSkeleton } from './explore-starred-skeleton'
 
 export const ExploreStarredRepos = () => {
@@ -12,7 +12,9 @@ export const ExploreStarredRepos = () => {
         {loading ? (
           <ExploreStarredSkeleton />
         ) : (
-          data?.map((repo) => <RepositoryCard repository={repo} />)
+          data?.map((repo) => (
+            <RepositoryCard repository={repo} key={repo.id} />
+          ))
         )}
       </div>
     </div>

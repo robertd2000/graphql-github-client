@@ -5,6 +5,7 @@ export interface RepositoryType {
   descriptionHTML: string
   updatedAt: string
   stargazerCount: number
+  viewerHasStarred: boolean
   primaryLanguage?: PrimaryLanguage
   repositoryTopics: RepositoryTopics
 }

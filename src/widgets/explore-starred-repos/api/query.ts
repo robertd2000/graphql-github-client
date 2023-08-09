@@ -8,6 +8,7 @@ export const EXPLORE_STARRED_REPOS = gql`
         orderBy: { field: STARRED_AT, direction: DESC }
       ) {
         nodes {
+          id
           name
           owner {
             login
@@ -15,6 +16,7 @@ export const EXPLORE_STARRED_REPOS = gql`
           }
           descriptionHTML
           updatedAt
+          viewerHasStarred
           stargazerCount
           primaryLanguage {
             color

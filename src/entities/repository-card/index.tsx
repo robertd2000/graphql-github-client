@@ -1,15 +1,16 @@
 import { FC } from 'react'
+
+import { Link } from 'react-router-dom'
+import { RepositoryTopics } from './repository-topics'
+import { RepositoryType } from '../../shared/types'
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from '../../components'
-import { RepositoryType } from '../../types'
-import { Link } from 'react-router-dom'
-import { StarButton } from '../star-button'
-import { RepositoryTopics } from './repository-topics'
+} from '../../shared/components'
+import { StarRepoButton } from '../../features/star-repo/ui'
 
 interface RepositoryCardProps {
   repository: RepositoryType
@@ -35,7 +36,11 @@ export const RepositoryCard: FC<RepositoryCardProps> = ({ repository }) => {
             </Link>
           </div>
 
-          <StarButton count={repository.stargazerCount} />
+          <StarRepoButton
+            count={repository.stargazerCount}
+            id={repository.id}
+            viewerHasStarred={repository.viewerHasStarred}
+          />
         </CardTitle>
       </CardHeader>
       <CardContent>

@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
+import { Github } from 'lucide-react'
+import { SearchInput } from '../../../features/search'
 import { useAuth } from '../../../entities/auth'
 import { AuthToolbar } from '../../../entities/auth-toolbar'
-import { Github } from 'lucide-react'
 import { MenuIcon } from '../../../shared/ui/icons'
 
 export const Header = () => {
@@ -23,11 +24,7 @@ export const Header = () => {
               id="mobile-menu-2"
             >
               <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                <li>
-                  {isAuth && (
-                    <input className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                  )}
-                </li>
+                <li>{isAuth && <SearchInput />}</li>
               </ul>
             </div>
           </div>

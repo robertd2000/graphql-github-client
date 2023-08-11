@@ -4,11 +4,13 @@ import { Topics } from '../../widgets/topics'
 
 export const SearchPage = () => {
   return (
-    <div className="grid grid-flow-row-dense auto-rows-max grid-cols-4 gap-4 mx-auto max-w-screen-xl mt-4">
+    <div className="grid grid-flow-row-dense auto-rows-max grid-cols-6 gap-4 mx-auto max-w-screen-xl mt-4">
       <div className="col-span-1">
-        <ScrollArea className="h-[90vh] w-full">Filters</ScrollArea>
+        <ScrollArea className="h-[90vh] w-full">
+          <Search.Filters />
+        </ScrollArea>
       </div>
-      <div className="col-span-3">
+      <div className="col-span-5">
         <ScrollArea className="h-[90vh] w-full">
           <div className="grid grid-flow-row-dense auto-rows-max grid-cols-3 gap-4 mx-auto max-w-screen-xl">
             <div className="col-span-2">

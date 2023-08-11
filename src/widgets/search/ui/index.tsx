@@ -1,3 +1,4 @@
+import { Filters } from './filters'
 import { Results } from './results'
 
 export const Search = ({ children }: PropsWithChildren) => (
@@ -5,3 +6,4 @@ export const Search = ({ children }: PropsWithChildren) => (
 )
 
 Search.Results = Results
+Search.Filters = Filters

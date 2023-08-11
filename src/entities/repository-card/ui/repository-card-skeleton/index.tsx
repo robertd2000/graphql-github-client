@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
   Skeleton,
-} from '../../../shared/components'
+} from '../../../../shared/components'
 
 export const RepositoryCardSkeleton = () => {
   return (

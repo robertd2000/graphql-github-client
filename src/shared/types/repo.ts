@@ -10,9 +10,10 @@ export interface RepositoryType {
   repositoryTopics: RepositoryTopics
 }
 
-interface Owner {
-  login: string
+export interface Owner {
   id: string
+  login: string
+  avatarUrl: string
 }
 
 interface PrimaryLanguage {

@@ -13,6 +13,7 @@ export const EXPLORE_STARRED_REPOS = gql`
           owner {
             login
             id
+            avatarUrl
           }
           descriptionHTML
           updatedAt

@@ -1,10 +1,13 @@
 import { usePageParam, useSearchQueryParam, useSearchTypeParam } from '.'
 import { PAGE_SIZE } from '../../consts'
+import { useSearchSortParams } from './use-sort-search'
 
 export const useSearch = () => {
   const { searchQuery } = useSearchQueryParam()
-  const { page, setPage } = usePageParam()
+  const { page, setPage, setDefaultPage } = usePageParam()
   const { searchType, searchTypeEnum, setSearchType } = useSearchTypeParam()
+  const { sortOrder, sortField, setSort, setDefaultSort } =
+    useSearchSortParams()
 
   const handlePageChange: typeof setPage = (page) => {
     setPage(page)
@@ -12,11 +15,21 @@ export const useSearch = () => {
 
   const handleTypeChange: typeof setSearchType = (type) => {
     setSearchType(type)
-    // setDefaultSort();
+    setDefaultSort()
   }
 
+  const handleSortChange: typeof setSort = (variant) => {
+    console.log(variant)
+
+    setSort(variant)
+    setDefaultPage()
+  }
+
+  console.log('sortField', sortField)
+
   return {
-    query: `${searchQuery}`,
+    query: `${searchQuery} sort:${sortField}-${sortOrder}`,
+    queryClean: searchQuery,
     type: searchTypeEnum,
     page,
     handlePageChange,
@@ -25,5 +38,6 @@ export const useSearch = () => {
     handleTypeChange,
     typeLiteral: searchType,
     searchType,
+    handleSortChange,
   }
 }

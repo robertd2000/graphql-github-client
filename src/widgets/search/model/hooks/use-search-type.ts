@@ -1,7 +1,7 @@
 import { StringParam, useQueryParam, withDefault } from 'use-query-params'
 import { SearchType } from '../../../../shared/types'
 
-type SearchTypeStr = 'repositories' | 'users' | 'issues' | 'discussions'
+export type SearchTypeStr = 'repositories' | 'users' | 'issues' | 'discussions'
 
 export const typesMap: Record<SearchTypeStr, SearchType> = {
   repositories: SearchType.Repository,

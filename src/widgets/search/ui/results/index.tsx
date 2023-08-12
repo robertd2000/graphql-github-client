@@ -11,6 +11,7 @@ import Pagination from '../../../../shared/ui/pagination'
 import { getSearchQuery } from '../../api'
 import { useSearch } from '../../model'
 import { ResultsTitle } from './results-title'
+import { ResultToolbar } from './results-toolbar'
 
 export const Results = () => {
   const { handlePageChange, page, searchType, ...searchConfig } = useSearch()
@@ -19,14 +20,18 @@ export const Results = () => {
 
   return (
     <div className="p-4">
-      <ResultsTitle
-        count={
-          (data?.repositoryCount ||
-            data?.userCount ||
-            data?.discussionCount ||
-            data?.issueCount) as number
-        }
-      />
+      <div className="flex flex-wrap justify-between items-center">
+        <ResultsTitle
+          count={
+            (data?.repositoryCount ||
+              data?.userCount ||
+              data?.discussionCount ||
+              data?.issueCount) as number
+          }
+        />
+        <ResultToolbar />
+      </div>
+
       <RepoCardList loading={loading}>
         {data?.nodes?.map((data) => {
           switch (searchType) {

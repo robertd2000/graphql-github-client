@@ -1,4 +1,7 @@
 import { RepositoryType } from '../../../shared/types'
+import { DiscussionType } from '../../../shared/types/discussion'
+import { IssueType } from '../../../shared/types/issue'
+import { UserType } from '../../../shared/types/user'
 
 export interface SearchConfig {
   variables: {
@@ -16,7 +19,9 @@ export interface SearchData {
 export interface Search {
   userCount: number
   repositoryCount: number
-  nodes: RepositoryType[]
+  issueCount: number
+  discussionCount: number
+  nodes: RepositoryType[] | UserType[] | IssueType[] | DiscussionType[]
 }
 
 export interface PrimaryLanguage {

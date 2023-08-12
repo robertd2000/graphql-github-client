@@ -1,6 +1,6 @@
 import { getExploreStarredRepos } from '../api'
 import { RepoCardList } from '../../../entities/repo-card-list'
-import { RepositoryCard } from '../../../entities/repository-card/ui'
+import { RepositoryCard } from '../../../entities/repository-card'
 
 export const ExploreStarredRepos = () => {
   const { data, loading } = getExploreStarredRepos()

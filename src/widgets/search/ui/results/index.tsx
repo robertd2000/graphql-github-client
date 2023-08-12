@@ -1,26 +1,58 @@
+import { DiscussionCard } from '../../../../entities/discussion-card'
+import { IssueCard } from '../../../../entities/issue-card'
 import { RepoCardList } from '../../../../entities/repo-card-list'
-import { RepositoryCard } from '../../../../entities/repository-card/ui'
-import { formatNumber } from '../../../../shared/lib/numbers'
+import { RepositoryCard } from '../../../../entities/repository-card'
+import { UserCard } from '../../../../entities/user-card'
+import { RepositoryType, SearchTypeSwitch } from '../../../../shared/types'
+import { DiscussionType } from '../../../../shared/types/discussion'
+import { IssueType } from '../../../../shared/types/issue'
+import { UserType } from '../../../../shared/types/user'
 import Pagination from '../../../../shared/ui/pagination'
 import { getSearchQuery } from '../../api'
 import { useSearch } from '../../model'
+import { ResultsTitle } from './results-title'
 
 export const Results = () => {
-  const { handlePageChange, page, ...searchConfig } = useSearch()
+  const { handlePageChange, page, searchType, ...searchConfig } = useSearch()
 
   const { data, loading } = getSearchQuery({ variables: searchConfig })
 
   return (
     <div className="p-4">
-      <h2>{formatNumber(data?.repositoryCount as number)} results</h2>
+      <ResultsTitle
+        count={
+          (data?.repositoryCount ||
+            data?.userCount ||
+            data?.discussionCount ||
+            data?.issueCount) as number
+        }
+      />
       <RepoCardList loading={loading}>
-        {data?.nodes?.map((repo) => (
-          <RepositoryCard
-            repository={repo}
-            key={repo.id}
-            topics={<RepositoryCard.Topics />}
-          />
-        ))}
+        {data?.nodes?.map((data) => {
+          switch (searchType) {
+            case SearchTypeSwitch.Repository:
+              return (
+                <RepositoryCard
+                  repository={data as RepositoryType}
+                  key={data.id}
+                  topics={<RepositoryCard.Topics />}
+                />
+              )
+            case SearchTypeSwitch.User:
+              return <UserCard user={data as UserType} key={data.id} />
+            case SearchTypeSwitch.Issue:
+              return <IssueCard issue={data as IssueType} key={data.id} />
+            case SearchTypeSwitch.Discussion:
+              return (
+                <DiscussionCard
+                  discussion={data as DiscussionType}
+                  key={data.id}
+                />
+              )
+            default:
+              return <></>
+          }
+        })}
       </RepoCardList>
       <Pagination
         totalCount={1000 as number}

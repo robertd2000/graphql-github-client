@@ -1,3 +1,5 @@
+import { ScrollArea } from '../../shared/components'
+import { PinnedItems } from '../../widgets/pinned-items'
 import { UserSider } from '../../widgets/user-sider'
 
 export const UserPage = () => {
@@ -6,7 +8,11 @@ export const UserPage = () => {
       <div className="col-span-1">
         <UserSider />
       </div>
-      <div className="col-span-2">data</div>
+      <div className="col-span-2">
+        <ScrollArea className="h-[90vh] w-full">
+          <PinnedItems />
+        </ScrollArea>
+      </div>
     </div>
   )
 }

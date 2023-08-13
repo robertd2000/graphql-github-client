@@ -1,12 +1,26 @@
-import { useQuery } from '@apollo/client'
-import { FOLLOW_USER } from './query'
+import { useMutation } from '@apollo/client'
+import { FOLLOW_USER, UNFOLLOW_USER } from './query'
+import { USER_CARD } from '../../../widgets/user-sider/api/query'
+import { SEARCH_QUERY } from '../../../widgets/search/api/query'
 
-export const followUser = (userId: string) => {
-  const { data, loading } = useQuery(FOLLOW_USER, {
-    variables: {
-      userId,
-    },
-  })
+export const followUserMutation = () => {
+  const [followUser, { loading: followUserLoading }] = useMutation(
+    FOLLOW_USER,
+    {
+      refetchQueries: [USER_CARD, SEARCH_QUERY],
+    }
+  )
 
-  return { data, loading }
+  return { followUser, followUserLoading }
+}
+
+export const unfollowUserMutation = () => {
+  const [unfollowUser, { loading: unfollowUserLoading }] = useMutation(
+    UNFOLLOW_USER,
+    {
+      refetchQueries: [USER_CARD, SEARCH_QUERY],
+    }
+  )
+
+  return { unfollowUser, unfollowUserLoading }
 }

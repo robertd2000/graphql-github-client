@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import { addStarMutation, removeStarMutation } from '../api'
 
 export const useStarRepo = (starrableId: string, viewerHasStarred: boolean) => {

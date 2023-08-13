@@ -3,6 +3,7 @@ export interface UserSidebar {
 }
 
 export interface User {
+  id: string
   name: string
   login: string
   bioHTML: string
@@ -16,6 +17,7 @@ export interface User {
   following: Following
   status: Status
   pronouns: string
+  viewerIsFollowing: boolean
 }
 
 export interface SocialAccounts {

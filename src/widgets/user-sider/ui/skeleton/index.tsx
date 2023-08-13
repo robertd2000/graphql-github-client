@@ -3,7 +3,7 @@ import { Card, CardContent, Skeleton } from '../../../../shared/components'
 export const UserSiderSkeleton = () => {
   return (
     <div>
-      <Skeleton className="w-[25rem] h-[25rem] shadow-md mt-4 rounded-full" />
+      <Skeleton className="w-[22rem] h-[22rem] shadow-md mt-4 rounded-full" />
 
       <Card className="border-none shadow-none my-6">
         <CardContent className="text-lg">

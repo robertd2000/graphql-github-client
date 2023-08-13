@@ -3,6 +3,7 @@ import { gql } from '@apollo/client'
 export const USER_CARD = gql`
   query ($login: String!) {
     user(login: $login) {
+      id
       name
       login
       bioHTML
@@ -11,6 +12,7 @@ export const USER_CARD = gql`
       url
       avatarUrl
       pronouns
+      viewerIsFollowing
       location
       socialAccounts(first: 10) {
         edges {

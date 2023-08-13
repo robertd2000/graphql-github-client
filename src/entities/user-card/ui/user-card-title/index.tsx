@@ -16,7 +16,7 @@ export const UserCardTitle = () => {
         <AvatarFallback>{user.login.slice(0, 2).toUpperCase()}</AvatarFallback>
       </Avatar>
       <div className="flex gap-2 items-center">
-        <Link to={`/user/${user.id}`} className="text-blue-500 break-words">
+        <Link to={`/user/${user.login}`} className="text-blue-500 break-words">
           {user.login}
         </Link>{' '}
         <Link

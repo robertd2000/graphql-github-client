@@ -18,7 +18,7 @@ export const RepositoryCardTitle = () => {
         </AvatarFallback>
       </Avatar>
       <Link
-        to={`/user/${repository.owner.id}`}
+        to={`/user/${repository.owner.login}`}
         className="text-blue-400 break-words"
       >
         {repository.owner.login}

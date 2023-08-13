@@ -34,7 +34,7 @@ export const Topics = () => {
                   <TopicNames
                     nameWithOwner={topic.nameWithOwner}
                     repoId={topic.id}
-                    ownerId={topic.owner.id}
+                    ownerId={topic.owner.login}
                   />
                 </div>
                 <p className="text-sm text-muted-foreground">

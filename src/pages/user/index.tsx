@@ -1,5 +1,6 @@
+import { Outlet } from 'react-router'
 import { ScrollArea } from '../../shared/components'
-import { PinnedItems } from '../../widgets/pinned-items'
+import { RepoHeader } from '../../widgets/repo-header'
 import { UserSider } from '../../widgets/user-sider'
 
 export const UserPage = () => {
@@ -9,8 +10,11 @@ export const UserPage = () => {
         <UserSider />
       </div>
       <div className="col-span-2">
+        <div className="divide-x mb-2">
+          <RepoHeader />
+        </div>
         <ScrollArea className="h-[90vh] w-full">
-          <PinnedItems />
+          <Outlet />
         </ScrollArea>
       </div>
     </div>

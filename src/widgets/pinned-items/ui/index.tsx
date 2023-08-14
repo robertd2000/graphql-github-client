@@ -10,9 +10,13 @@ export const PinnedItems = () => {
 
   return (
     <RepoCardList loading={loading}>
-      {data?.map((repo) => (
-        <RepositoryCard repository={repo} key={repo.id} />
-      ))}
+      <div className="grid grid-cols-2 gap-4">
+        {data?.map((repo) => (
+          <div className="">
+            <RepositoryCard repository={repo} key={repo.id} />
+          </div>
+        ))}
+      </div>
     </RepoCardList>
   )
 }

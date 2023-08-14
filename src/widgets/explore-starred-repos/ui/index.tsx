@@ -1,6 +1,8 @@
 import { getExploreStarredRepos } from '../api'
 import { RepoCardList } from '../../../entities/repo-card-list'
 import { RepositoryCard } from '../../../entities/repository-card'
+import { StarRepoButton } from '../../../features/star-repo'
+import { DotSeparator } from '../../../shared/ui/dot-separator'
 
 export const ExploreStarredRepos = () => {
   const { data, loading } = getExploreStarredRepos()
@@ -11,7 +13,26 @@ export const ExploreStarredRepos = () => {
         <RepositoryCard
           repository={repo}
           key={repo.id}
-          topics={<RepositoryCard.Topics />}
+          content={
+            <RepositoryCard.Content>
+              <RepositoryCard.Description />
+              <RepositoryCard.Topics />
+            </RepositoryCard.Content>
+          }
+          footer={
+            <>
+              <DotSeparator />
+              <RepositoryCard.StargazersCount />
+              <DotSeparator />
+              <RepositoryCard.Updated />
+            </>
+          }
+          action={
+            <StarRepoButton
+              id={repo.id}
+              viewerHasStarred={repo.viewerHasStarred}
+            />
+          }
         />
       ))}
     </RepoCardList>

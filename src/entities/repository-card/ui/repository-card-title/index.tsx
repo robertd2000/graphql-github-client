@@ -5,8 +5,15 @@ import {
   AvatarFallback,
   AvatarImage,
 } from '../../../../shared/components/ui/avatar'
+import { FC, ReactNode } from 'react'
 
-export const RepositoryCardTitle = () => {
+interface RepositoryCardTitleProps {
+  children?: ReactNode
+}
+
+export const RepositoryCardTitle: FC<RepositoryCardTitleProps> = ({
+  children,
+}) => {
   const { repository } = useRepositoryCardContext()
 
   return (
@@ -30,6 +37,7 @@ export const RepositoryCardTitle = () => {
       >
         {repository.name}
       </Link>
+      {children}
     </div>
   )
 }

@@ -3,11 +3,14 @@ import { IssueCard } from '../../../../entities/issue-card'
 import { RepoCardList } from '../../../../entities/repo-card-list'
 import { RepositoryCard } from '../../../../entities/repository-card'
 import { UserCard } from '../../../../entities/user-card'
+import { StarRepoButton } from '../../../../features/star-repo'
 import { RepositoryType, SearchTypeSwitch } from '../../../../shared/types'
 import { DiscussionType } from '../../../../shared/types/discussion'
 import { IssueType } from '../../../../shared/types/issue'
 import { UserType } from '../../../../shared/types/user'
+import { DotSeparator } from '../../../../shared/ui/dot-separator'
 import Pagination from '../../../../shared/ui/pagination'
+import { RepositoryTypeBadge } from '../../../../shared/ui/repo-type'
 import { getSearchQuery } from '../../api'
 import { useSearch } from '../../model'
 import { ResultsTitle } from './results-title'
@@ -40,7 +43,33 @@ export const Results = () => {
                 <RepositoryCard
                   repository={data as RepositoryType}
                   key={data.id}
-                  topics={<RepositoryCard.Topics />}
+                  repoType={
+                    <RepositoryTypeBadge
+                      isPrivate={(data as RepositoryType).isPrivate}
+                    />
+                  }
+                  action={
+                    <StarRepoButton
+                      id={data.id}
+                      viewerHasStarred={
+                        (data as RepositoryType).viewerHasStarred
+                      }
+                    />
+                  }
+                  content={
+                    <RepositoryCard.Content>
+                      <RepositoryCard.Description />
+                      <RepositoryCard.Topics />
+                    </RepositoryCard.Content>
+                  }
+                  footer={
+                    <>
+                      <DotSeparator />
+                      <RepositoryCard.StargazersCount />
+                      <DotSeparator />
+                      <RepositoryCard.Updated />
+                    </>
+                  }
                 />
               )
             case SearchTypeSwitch.User:

@@ -8,6 +8,7 @@ export interface RepositoryType {
   viewerHasStarred: boolean
   primaryLanguage?: PrimaryLanguage
   repositoryTopics: RepositoryTopics
+  isPrivate: boolean
 }
 
 export interface Owner {

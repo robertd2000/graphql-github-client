@@ -10,12 +10,15 @@ import { RepositoryCardStargazersCount } from './repository-card-footer/reposito
 import { RepositoryCardUpdated } from './repository-card-footer/repository-card-updated'
 import { RepositoryCardContent } from './repository-card-content'
 import { RepositoryCardDescription } from './repository-card-content/repository-card-description'
+import { RepositoryCardAvatar } from './repository-card-title/repository-card-avatar'
+import { RepositoryCardNameFull } from './repository-card-title/repository-card-name-full'
+import { RepositoryCardNameShort } from './repository-card-title/repository-card-name-short'
 
 interface RepositoryCardProps {
   repository: RepositoryType
   action?: ReactNode
   footer?: ReactNode
-  repoType?: ReactNode
+  title?: ReactNode
   content?: ReactNode
 }
 
@@ -23,7 +26,7 @@ export const RepositoryCard = ({
   repository,
   action,
   footer,
-  repoType,
+  title,
   content,
 }: RepositoryCardProps) => {
   return (
@@ -31,7 +34,7 @@ export const RepositoryCard = ({
       <Card>
         <CardHeader>
           <CardTitle className="flex justify-between align-middle items-center">
-            <RepositoryCardTitle>{repoType}</RepositoryCardTitle>
+            {title}
             {action}
           </CardTitle>
         </CardHeader>
@@ -42,11 +45,15 @@ export const RepositoryCard = ({
   )
 }
 
+RepositoryCard.Title = RepositoryCardTitle
 RepositoryCard.Topics = RepositoryTopics
 RepositoryCard.Footer = RepositoryCardFooter
 RepositoryCard.StargazersCount = RepositoryCardStargazersCount
 RepositoryCard.Updated = RepositoryCardUpdated
 RepositoryCard.Content = RepositoryCardContent
 RepositoryCard.Description = RepositoryCardDescription
+RepositoryCard.Avatar = RepositoryCardAvatar
+RepositoryCard.NameFull = RepositoryCardNameFull
+RepositoryCard.NameShort = RepositoryCardNameShort
 
 export * from './repository-card-skeleton'

@@ -13,7 +13,26 @@ export const PinnedItems = () => {
       <div className="grid grid-cols-2 gap-4">
         {data?.map((repo) => (
           <div className="">
-            <RepositoryCard repository={repo} key={repo.id} />
+            <RepositoryCard
+              repository={repo}
+              key={repo.id}
+              title={
+                <RepositoryCard.Title>
+                  <RepositoryCard.NameShort />
+                </RepositoryCard.Title>
+              }
+              content={
+                <RepositoryCard.Content>
+                  <RepositoryCard.Description />
+                </RepositoryCard.Content>
+              }
+              footer={
+                <>
+                  <RepositoryCard.StargazersCount />
+                  <RepositoryCard.Updated />
+                </>
+              }
+            />
           </div>
         ))}
       </div>

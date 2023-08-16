@@ -1,12 +1,16 @@
-import { getExploreStarredRepos } from '../api'
+import { useParams } from 'react-router'
+import { getStarredRepos } from '../api'
 import { RepoCardList } from '../../../entities/repo-card-list'
 import { RepositoryCard } from '../../../entities/repository-card'
-import { StarRepoButton } from '../../../features/star-repo'
+import { RepositoryTypeBadge } from '../../../shared/ui/repo-type'
+import { RepositoryType } from '../../../shared/types'
 import { DotSeparator } from '../../../shared/ui/dot-separator'
+import { StarRepoButton } from '../../../features/star-repo'
 
-export const ExploreStarredRepos = () => {
-  const { data, loading } = getExploreStarredRepos()
+export const StarredRepos = () => {
+  const { login } = useParams()
 
+  const { data, loading } = getStarredRepos(login as string)
   return (
     <RepoCardList loading={loading}>
       {data?.map((repo) => (
@@ -15,8 +19,10 @@ export const ExploreStarredRepos = () => {
           key={repo.id}
           title={
             <RepositoryCard.Title>
-              <RepositoryCard.Avatar />
               <RepositoryCard.NameFull />
+              <RepositoryTypeBadge
+                isPrivate={(repo as RepositoryType).isPrivate}
+              />
             </RepositoryCard.Title>
           }
           content={

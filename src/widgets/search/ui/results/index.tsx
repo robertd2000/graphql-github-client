@@ -43,10 +43,14 @@ export const Results = () => {
                 <RepositoryCard
                   repository={data as RepositoryType}
                   key={data.id}
-                  repoType={
-                    <RepositoryTypeBadge
-                      isPrivate={(data as RepositoryType).isPrivate}
-                    />
+                  title={
+                    <RepositoryCard.Title>
+                      <RepositoryCard.Avatar />
+                      <RepositoryCard.NameFull />
+                      <RepositoryTypeBadge
+                        isPrivate={(data as RepositoryType).isPrivate}
+                      />
+                    </RepositoryCard.Title>
                   }
                   action={
                     <StarRepoButton

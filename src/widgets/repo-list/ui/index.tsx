@@ -1,11 +1,13 @@
-import { getExploreStarredRepos } from '../api'
+import { useUserRepoList } from '../model'
 import { RepoCardList } from '../../../entities/repo-card-list'
 import { RepositoryCard } from '../../../entities/repository-card'
-import { StarRepoButton } from '../../../features/star-repo'
 import { DotSeparator } from '../../../shared/ui/dot-separator'
+import { StarRepoButton } from '../../../features/star-repo'
+import { RepositoryTypeBadge } from '../../../shared/ui/repo-type'
+import { RepositoryType } from '../../../shared/types'
 
-export const ExploreStarredRepos = () => {
-  const { data, loading } = getExploreStarredRepos()
+export const UserRepoList = () => {
+  const { data, loading } = useUserRepoList()
 
   return (
     <RepoCardList loading={loading}>
@@ -15,8 +17,10 @@ export const ExploreStarredRepos = () => {
           key={repo.id}
           title={
             <RepositoryCard.Title>
-              <RepositoryCard.Avatar />
-              <RepositoryCard.NameFull />
+              <RepositoryCard.NameShort />
+              <RepositoryTypeBadge
+                isPrivate={(repo as RepositoryType).isPrivate}
+              />
             </RepositoryCard.Title>
           }
           content={

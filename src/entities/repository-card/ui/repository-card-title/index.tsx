@@ -1,43 +1,20 @@
-import { Link } from 'react-router-dom'
-import { useRepositoryCardContext } from '../../model'
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '../../../../shared/components/ui/avatar'
-import { FC, ReactNode } from 'react'
+import { ReactNode } from 'react'
+// import { RepositoryCardAvatar } from './repository-card-avatar'
+// import { RepositoryCardNameFull } from './repository-card-name-full'
+// import { RepositoryCardNameShort } from './repository-card-name-short'
 
 interface RepositoryCardTitleProps {
   children?: ReactNode
 }
 
-export const RepositoryCardTitle: FC<RepositoryCardTitleProps> = ({
-  children,
-}) => {
-  const { repository } = useRepositoryCardContext()
-
+export const RepositoryCardTitle = ({ children }: RepositoryCardTitleProps) => {
   return (
     <div className="flex gap-2 text-lg break-all max-w-[80%] items-center">
-      <Avatar className="h-6 w-6 items-bottom">
-        <AvatarImage src={repository.owner.avatarUrl} />
-        <AvatarFallback>
-          {repository.owner.login.slice(0, 2).toUpperCase()}
-        </AvatarFallback>
-      </Avatar>
-      <Link
-        to={`/user/${repository.owner.login}`}
-        className="text-blue-400 break-words"
-      >
-        {repository.owner.login}
-      </Link>{' '}
-      /{' '}
-      <Link
-        to={`/repository/${repository.id}`}
-        className="text-blue-500 font-semibold break-words"
-      >
-        {repository.name}
-      </Link>
       {children}
     </div>
   )
 }
+
+// RepositoryCardTitle.Avatar = RepositoryCardAvatar
+// RepositoryCardTitle.NameFull = RepositoryCardNameFull
+// RepositoryCardTitle.NameShort = RepositoryCardNameShort

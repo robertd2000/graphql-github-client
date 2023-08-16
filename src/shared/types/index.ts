@@ -21,3 +21,16 @@ export enum SearchTypeSwitch {
   /** Returns matching discussions in repositories. */
   Discussion = 'discussions',
 }
+
+export enum RepositoryOrder {
+  'CREATED_AT',
+  'UPDATED_AT',
+  'PUSHED_AT',
+  'NAME',
+  'STARGAZERS',
+}
+
+export enum OrderDirection {
+  'ASC',
+  'DESC',
+}

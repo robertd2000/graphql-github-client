@@ -19,8 +19,6 @@ export const useSearch = () => {
   }
 
   const handleSortChange: typeof setSort = (variant) => {
-    console.log(variant)
-
     setSort(variant)
     setDefaultPage()
   }

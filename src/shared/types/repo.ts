@@ -15,6 +15,7 @@ export interface Owner {
   id: string
   login: string
   avatarUrl: string
+  __typename: string
 }
 
 interface PrimaryLanguage {

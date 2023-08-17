@@ -9,6 +9,7 @@ export const REPO_FIELDS = gql`
       id
       login
       avatarUrl
+      __typename
     }
     descriptionHTML
     updatedAt

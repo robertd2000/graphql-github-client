@@ -4,10 +4,13 @@ import { useRepositoryCardContext } from '../../../model'
 export const RepositoryCardNameFull = () => {
   const { repository } = useRepositoryCardContext()
 
+  const ownerLink =
+    repository.owner.__typename === 'Organization' ? `org` : `user`
+
   return (
     <>
       <Link
-        to={`/user/${repository.owner.login}`}
+        to={`/${ownerLink}/${repository.owner.login}`}
         className="text-blue-400 break-words"
       >
         {repository.owner.login}

@@ -14,6 +14,7 @@ export const EXPLORE_STARRED_REPOS = gql`
             login
             id
             avatarUrl
+            __typename
           }
           descriptionHTML
           updatedAt

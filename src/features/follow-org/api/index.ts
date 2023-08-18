@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client'
-import { USER_CARD } from '../../../widgets/user-sider/api/query'
-import { SEARCH_QUERY } from '../../../widgets/search/api/query'
+// import { USER_CARD } from '../../../widgets/user-sider/api/query'
+// import { SEARCH_QUERY } from '../../../widgets/search/api/query'
 import { FOLLOW_ORG, UNFOLLOW_ORG } from './query'
 
 export const followOrgMutation = () => {

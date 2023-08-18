@@ -6,7 +6,7 @@ import { Spinner } from '../../shared/ui'
 
 const withRouter = (component: Component) => () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/graphql-github-client/">
       <Suspense fallback={<Spinner />}>
         <QueryParamProvider adapter={ReactRouter6Adapter}>
           {component()}

@@ -1,27 +1,20 @@
-# React + TypeScript + Vite
+# Приложение для просмотра и работы с GitHub репозиториями
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Технический стек
+- React + Typesript (React Hooks)
+- Apollo GraphQL
+- Tailwind CSS
+- Архитектура приложения - Feature Slice Design (FSD)
 
-Currently, two official plugins are available:
+## Функционал
+- [x] авторирзация GitHub аккаунта (реализована через Firebase)
+- [x] просмотр аккаунтов пользователей и организаций 
+- [x] поиск по категориям: репозитории, пользователи, issues, discussions 
+- [x] подписка на пользователей и организации 
+- [x] подписка на репозитории (Star)
+- [x] фильтрация и сортировка (API GitHub не реагирует на сортировку)
+- [ ] создание issues 
+- [ ] создание discussions
+- [ ] комментарии
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+  

@@ -1,4 +1,5 @@
-import { usePageParam, useSearchQueryParam, useSearchTypeParam } from '.'
+import { useSearchQueryParam, useSearchTypeParam } from '.'
+import { usePageParam } from '../../../../shared/hooks/use-page-params'
 import { PAGE_SIZE } from '../../consts'
 import { useSearchSortParams } from './use-sort-search'
 
@@ -22,8 +23,6 @@ export const useSearch = () => {
     setSort(variant)
     setDefaultPage()
   }
-
-  console.log('sortField', sortField)
 
   return {
     query: `${searchQuery} sort:${sortField}-${sortOrder}`,

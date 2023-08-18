@@ -10,30 +10,28 @@ export const PinnedItems = () => {
 
   return (
     <RepoCardList loading={loading}>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4 items-stretch ">
         {data?.map((repo) => (
-          <div className="">
-            <RepositoryCard
-              repository={repo}
-              key={repo.id}
-              title={
-                <RepositoryCard.Title>
-                  <RepositoryCard.NameShort />
-                </RepositoryCard.Title>
-              }
-              content={
-                <RepositoryCard.Content>
-                  <RepositoryCard.Description />
-                </RepositoryCard.Content>
-              }
-              footer={
-                <>
-                  <RepositoryCard.StargazersCount />
-                  <RepositoryCard.Updated />
-                </>
-              }
-            />
-          </div>
+          <RepositoryCard
+            repository={repo}
+            key={repo.id}
+            title={
+              <RepositoryCard.Title>
+                <RepositoryCard.NameShort />
+              </RepositoryCard.Title>
+            }
+            content={
+              <RepositoryCard.Content>
+                <RepositoryCard.Description />
+              </RepositoryCard.Content>
+            }
+            footer={
+              <>
+                <RepositoryCard.StargazersCount />
+                <RepositoryCard.Updated />
+              </>
+            }
+          />
         ))}
       </div>
     </RepoCardList>

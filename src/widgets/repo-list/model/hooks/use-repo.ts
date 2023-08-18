@@ -1,25 +1,24 @@
 import { useParams } from 'react-router'
 import { useSearchSortParams } from '.'
-import { getUserRepoList } from '../../api'
-import { OrderDirection, RepositoryOrder } from '../../../../shared/types'
+import { PAGE_SIZE } from '../../../search/consts'
+import { usePageParam } from './use-pagination'
 
 export const useUserRepoList = () => {
-  const {
-    sortOrder,
-    sortField,
-    availableVariants,
-    currentVariant,
-    setSort,
-    setDefaultSort,
-  } = useSearchSortParams()
+  const { sortOrder, sortField } = useSearchSortParams()
+
+  const { page, setPage } = usePageParam()
 
   const { login } = useParams()
 
-  const { data, loading } = getUserRepoList({
+  return {
+    first: PAGE_SIZE,
+    // after: btoa(`cursor:${(page - 1) * PAGE_SIZE}`),
+    // after: 'Y3Vyc29yOjEwMA==',
+    after: page,
+    setPage,
+    page,
     login: login as string,
     sort: sortField || 'UPDATED_AT',
     direction: sortOrder || 'DESC',
-  })
-
-  return { data, loading }
+  }
 }

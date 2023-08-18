@@ -1,4 +1,4 @@
-import { RepositoryType } from '../../../shared/types'
+import { PageInfo, RepositoryType } from '../../../shared/types'
 
 export interface RepoListData {
   user: User
@@ -9,5 +9,6 @@ export interface User {
 }
 
 export interface Repositories {
+  pageInfo: PageInfo
   nodes: RepositoryType[]
 }

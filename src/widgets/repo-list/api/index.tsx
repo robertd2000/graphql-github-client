@@ -13,6 +13,7 @@ export const getUserRepoList = (variables: {
 
   return {
     data: data?.user.repositories.nodes,
+    pageInfo: data?.user.repositories.pageInfo,
     loading,
   }
 }

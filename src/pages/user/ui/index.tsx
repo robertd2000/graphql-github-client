@@ -13,7 +13,7 @@ export const UserPage = () => {
         <div className="divide-x mb-2">
           <RepoHeader />
         </div>
-        <ScrollArea className="h-[90vh] w-full">
+        <ScrollArea className="h-[85vh] w-full">
           <Outlet />
         </ScrollArea>
       </div>

@@ -35,3 +35,10 @@ interface Topic {
   id: string
   name: string
 }
+
+export interface PageInfo {
+  hasNextPage: boolean
+  hasPreviousPage: boolean
+  endCursor: string
+  startCursor: string
+}

@@ -5,12 +5,21 @@ export const REPO_LIST = gql`
     $login: String!
     $sort: RepositoryOrderField!
     $direction: OrderDirection!
+    $first: Int!
+    $after: String
   ) {
     user(login: $login) {
       repositories(
-        first: 100
+        first: $first
+        after: $after
         orderBy: { field: $sort, direction: $direction }
       ) {
+        pageInfo {
+          hasNextPage
+          hasPreviousPage
+          endCursor
+          startCursor
+        }
         nodes {
           name
           id

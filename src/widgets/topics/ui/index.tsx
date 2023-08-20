@@ -31,11 +31,7 @@ export const Topics = () => {
                       alt=""
                     />
                   </div>
-                  <TopicNames
-                    nameWithOwner={topic.nameWithOwner}
-                    repoId={topic.id}
-                    ownerId={topic.owner.login}
-                  />
+                  <TopicNames nameWithOwner={topic.nameWithOwner} />
                 </div>
                 <p className="text-sm text-muted-foreground">
                   {topic.description}

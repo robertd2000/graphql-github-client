@@ -1,4 +1,4 @@
-export const OrgOverviewPage = () => {
+export const OrgMenu = () => {
   return (
     <div>
       Although you appear to have the correct authorization credentials, the

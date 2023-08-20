@@ -10,7 +10,7 @@ export const useRepositoryCardContext = () => {
 
   if (!context)
     throw new Error(
-      'Use RepositoryCard* component ibside RepositoryCardContext'
+      'Use RepositoryCard* component inside RepositoryCardContext'
     )
 
   return context

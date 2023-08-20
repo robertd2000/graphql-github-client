@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { Star } from 'lucide-react'
 import { useStarRepo } from '..'
+import { cn } from '../../../shared/lib/cn'
 
 interface StarRepoButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   id: string
@@ -10,13 +11,17 @@ interface StarRepoButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 export const StarRepoButton: FC<StarRepoButtonProps> = ({
   id,
   viewerHasStarred,
+  className,
   ...props
 }) => {
   const { onStarHandler } = useStarRepo(id, viewerHasStarred)
 
   return (
     <button
-      className="flex flex-wrap gap-1 disabled text-sm items-center border rounded py-2 px-3 w-25 bg-blue-50 "
+      className={cn(
+        'flex flex-wrap gap-1 disabled text-sm items-center border rounded py-2 px-3 w-25 bg-blue-50 ',
+        className
+      )}
       onClick={onStarHandler}
       {...props}
     >

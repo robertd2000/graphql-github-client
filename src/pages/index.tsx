@@ -10,6 +10,9 @@ import {
 } from './user'
 import { OrgPage } from './org'
 import { OrgOverviewPage } from './org/ui/overview'
+import { RepoPage } from './repo'
+import { RepoOverviewPage } from './repo/overview'
+import { RepoIssuesPage } from './repo/issues'
 
 export const Routing = () => {
   return (
@@ -22,8 +25,12 @@ export const Routing = () => {
         <Route path="repositories" element={<UserReposPage />} />
         <Route path="stars" element={<UserStarsPage />} />
       </Route>
-      <Route path="/org/:login" element={<OrgPage />}>
+      <Route path="/org/:name" element={<OrgPage />}>
         <Route path="" element={<OrgOverviewPage />} />
+      </Route>
+      <Route path="/repository/:owner/:name" element={<RepoPage />}>
+        <Route path="" element={<RepoOverviewPage />} />
+        <Route path="issues" element={<RepoIssuesPage />} />
       </Route>
     </Routes>
   )

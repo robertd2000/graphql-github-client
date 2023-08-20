@@ -8,6 +8,7 @@ import {
 } from '../../../../shared/components/ui/navigation-menu'
 import { useRepositoryCardContext } from '../../model'
 import { BookOpen, CircleDot } from 'lucide-react'
+import { formatNumber } from '../../../../shared/lib/numbers'
 
 export const RepoMenu = () => {
   const { repository } = useRepositoryCardContext()
@@ -28,9 +29,9 @@ export const RepoMenu = () => {
           <Link to="issues">
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               <div className="flex flex-wrap gap-2 items-center">
-                <CircleDot className="text-gray-500" /> Repositories{' '}
+                <CircleDot className="text-gray-500" /> Issues{' '}
                 <div className="text-gray-600 bg-gray-100 rounded-xl px-2 py-1">
-                  {repository?.issues?.totalCount}
+                  {formatNumber(repository?.issues?.totalCount)}
                 </div>
               </div>
             </NavigationMenuLink>

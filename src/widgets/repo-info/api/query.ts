@@ -1,14 +1,16 @@
 import { gql } from '@apollo/client'
 
-export const REPO_OVERVIEW = gql`
+export const REPO_INFO = gql`
   query ($owner: String!, $name: String!) {
     repository(owner: $owner, name: $name) {
       id
       name
+      url
       descriptionHTML
       licenseInfo {
         id
         name
+        url
       }
       labels(first: 100) {
         nodes {
@@ -28,11 +30,21 @@ export const REPO_OVERVIEW = gql`
       }
       description
       languages(first: 6, orderBy: { field: SIZE, direction: DESC }) {
-        nodes {
-          id
-          name
-          color
+        #       nodes {
+        #         id
+        #         name
+        #         color
+
+        #       }
+        edges {
+          size
+          node {
+            id
+            color
+            name
+          }
         }
+        totalSize
         totalCount
       }
 

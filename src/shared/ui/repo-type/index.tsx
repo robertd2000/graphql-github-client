@@ -9,6 +9,8 @@ export const RepositoryTypeBadge: FC<RepositoryTypeBadgeProps> = ({
   isPrivate,
 }) => {
   return (
-    <Badge className="outline border">{isPrivate ? 'Private' : 'Public'}</Badge>
+    <Badge className="border" variant={'outline'}>
+      {isPrivate ? 'Private' : 'Public'}
+    </Badge>
   )
 }

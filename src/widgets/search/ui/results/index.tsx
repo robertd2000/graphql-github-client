@@ -79,7 +79,13 @@ export const Results = () => {
             case SearchTypeSwitch.User:
               return <UserCard user={data as UserType} key={data.id} />
             case SearchTypeSwitch.Issue:
-              return <IssueCard issue={data as IssueType} key={data.id} />
+              return (
+                <IssueCard
+                  issue={data as IssueType}
+                  key={data.id}
+                  owner={<IssueCard.IssueOwner />}
+                />
+              )
             case SearchTypeSwitch.Discussion:
               return (
                 <DiscussionCard

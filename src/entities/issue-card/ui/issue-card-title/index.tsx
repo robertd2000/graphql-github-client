@@ -1,16 +1,19 @@
 import { CheckCircle2, CircleDot } from 'lucide-react'
-import { CardDescription, CardTitle } from '../../../../shared/components'
+import { CardTitle } from '../../../../shared/components'
 import { useIssueCardContext } from '../../model'
 import { Link } from 'react-router-dom'
+import { FC, ReactNode } from 'react'
 
-export const IssueCardTitle = () => {
+interface IssueCardTitleProps {
+  children?: ReactNode
+}
+
+export const IssueCardTitle: FC<IssueCardTitleProps> = ({ children }) => {
   const { issue } = useIssueCardContext()
 
   return (
     <>
-      <CardDescription>
-        {issue.repository?.owner?.login} / {issue.repository?.name}
-      </CardDescription>
+      {children}
       <CardTitle className="flex flex-wrap gap-2 items-center">
         {issue.closed ? (
           <CheckCircle2 className="text-purple-600" />

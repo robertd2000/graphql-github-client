@@ -11,6 +11,8 @@ export interface IssueType {
   comments: {
     totalCount: number
   }
+  milestone: Milestone
+  state: 'OPEN' | 'CLOSED'
 }
 
 export interface Labels {
@@ -19,7 +21,9 @@ export interface Labels {
 
 export interface Node {
   name: string
+  color: string
   id: string
+  url: string
 }
 
 export interface Repository {
@@ -36,4 +40,9 @@ export interface Author {
   url: string
   avatarUrl: string
   resourcePath: string
+}
+
+interface Milestone {
+  id: string
+  title: string
 }

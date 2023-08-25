@@ -16,6 +16,7 @@ const badgeVariants = cva(
         outline: 'text-foreground',
         topic:
           'bg-sky-100 text-sky-600 hover:bg-sky-600 hover:text-white align-middle items-center',
+        label: 'align-middle items-center border-none hover:opacity-70',
       },
     },
     defaultVariants: {

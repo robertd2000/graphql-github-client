@@ -17,7 +17,11 @@ export const RepoOverviewIssues = () => {
       <h2 className="font-semibold text-xl">Repo issues overview</h2>
       <RepoCardList loading={loading}>
         {data?.issues.nodes.map((issue) => (
-          <IssueCard issue={issue} key={issue.id} />
+          <IssueCard
+            issue={issue}
+            key={issue.id}
+            labels={<IssueCard.Labels />}
+          />
         ))}
       </RepoCardList>
       <Link

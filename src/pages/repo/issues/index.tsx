@@ -1,3 +1,10 @@
+import { Issues } from '../../../widgets/issues-list'
+
 export const RepoIssuesPage = () => {
-  return <div>RepoIssues</div>
+  return (
+    <Issues>
+      <Issues.Filters />
+      <Issues.List />
+    </Issues>
+  )
 }

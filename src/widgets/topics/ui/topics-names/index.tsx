@@ -1,13 +1,13 @@
-import { FC } from 'react'
-import { Link } from 'react-router-dom'
-import { getNames } from '../../lib/names'
+import { FC } from "react";
+import { Link } from "react-router-dom";
+import { getNames } from "../../../../shared/lib/names";
 
 interface TopicNamesProps {
-  nameWithOwner: string
+  nameWithOwner: string;
 }
 
 export const TopicNames: FC<TopicNamesProps> = ({ nameWithOwner }) => {
-  const { repoName, ownerName } = getNames(nameWithOwner)
+  const { repoName, ownerName } = getNames(nameWithOwner);
 
   return (
     <div className=" flex items-center">
@@ -18,5 +18,5 @@ export const TopicNames: FC<TopicNamesProps> = ({ nameWithOwner }) => {
         {repoName} / {ownerName}
       </Link>
     </div>
-  )
-}
+  );
+};

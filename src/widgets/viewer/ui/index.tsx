@@ -1,9 +1,9 @@
-import { getViewer } from '../api'
-import { ViewerCard } from './viewer-card'
-import { ViewerRepositories } from './viewer-repositories'
+import { getViewer } from "../api";
+import { ViewerCard } from "./viewer-card";
+import { ViewerRepositories } from "./viewer-repositories";
 
 export const Viewer = () => {
-  const { data, loading } = getViewer()
+  const { data, loading } = getViewer();
 
   return (
     <div>
@@ -11,7 +11,8 @@ export const Viewer = () => {
       <ViewerRepositories
         repositories={data?.topRepositories.nodes}
         loading={false}
+        viewerName={data?.login}
       />
     </div>
-  )
-}
+  );
+};

@@ -1,8 +1,8 @@
 export const getNames = (nameWithOwner: string) => {
-  const [repoName, ownerName] = nameWithOwner.split('/')
+  const [ownerName, repoName] = nameWithOwner.split("/");
 
   return {
     repoName,
     ownerName,
-  }
-}
+  };
+};

@@ -1,18 +1,19 @@
-import { Route, Routes } from 'react-router-dom'
-import HomePage from './home'
-import AuthPage from './auth'
-import { SearchPage } from './search'
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./home";
+import AuthPage from "./auth";
+import { SearchPage } from "./search";
 import {
   UserOverviewPage,
   UserPage,
   UserReposPage,
   UserStarsPage,
-} from './user'
-import { OrgPage } from './org'
-import { OrgOverviewPage } from './org/ui/overview'
-import { RepoPage } from './repo'
-import { RepoOverviewPage } from './repo/overview'
-import { RepoIssuesPage } from './repo/issues'
+} from "./user";
+import { OrgPage } from "./org";
+import { OrgOverviewPage } from "./org/ui/overview";
+import { RepoPage } from "./repo";
+import { RepoOverviewPage } from "./repo/overview";
+import { RepoIssuesPage } from "./repo/issues";
+import { NewIssuePage } from "./repo/issues/new";
 
 export const Routing = () => {
   return (
@@ -31,7 +32,8 @@ export const Routing = () => {
       <Route path="/repository/:owner/:name" element={<RepoPage />}>
         <Route path="" element={<RepoOverviewPage />} />
         <Route path="issues" element={<RepoIssuesPage />} />
+        <Route path="issues/new" element={<NewIssuePage />} />
       </Route>
     </Routes>
-  )
-}
+  );
+};

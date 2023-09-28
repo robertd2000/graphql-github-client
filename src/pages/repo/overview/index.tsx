@@ -1,5 +1,5 @@
-import { RepoInfo } from '../../../widgets/repo-info/ui'
-import { RepoOverviewIssues } from '../../../widgets/repo-overview-issues'
+import { RepoInfo } from "../../../widgets/repo-info";
+import { RepoOverviewIssues } from "../../../widgets/repo-overview-issues";
 
 export const RepoOverviewPage = () => {
   return (
@@ -11,5 +11,5 @@ export const RepoOverviewPage = () => {
         <RepoInfo />
       </div>
     </div>
-  )
-}
+  );
+};

@@ -1,18 +1,18 @@
-import { useParams } from 'react-router'
-import { getRepoOverviewIssues } from '../api'
-import { IssueCard } from '../../../entities/issue-card'
-import { RepoCardList } from '../../../entities/repo-card-list'
-import { Link } from 'react-router-dom'
+import { useParams } from "react-router";
+import { getRepoOverviewIssues } from "../api";
+import { IssueCard } from "../../../entities/issue-card";
+import { RepoCardList } from "../../../entities/repo-card-list";
+import { Link } from "react-router-dom";
 
 export const RepoOverviewIssues = () => {
-  const { owner, name } = useParams()
+  const { owner, name } = useParams();
 
   const { data, loading } = getRepoOverviewIssues({
     name: name as string,
     owner: owner as string,
-  })
+  });
 
-  return (
+  return data?.issues?.nodes?.length && !loading ? (
     <>
       <h2 className="font-semibold text-xl">Repo issues overview</h2>
       <RepoCardList loading={loading}>
@@ -24,12 +24,15 @@ export const RepoOverviewIssues = () => {
           />
         ))}
       </RepoCardList>
+
       <Link
-        to={'issues'}
+        to={"issues"}
         className="text-blue-400 hover:underline float-right my-2"
       >
         Explore all
       </Link>
     </>
-  )
-}
+  ) : (
+    <h2 className="font-semibold text-xl">No issues yet</h2>
+  );
+};

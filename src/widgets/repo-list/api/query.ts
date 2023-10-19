@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from "@apollo/client";
 
 export const REPO_LIST = gql`
   query (
@@ -28,6 +28,11 @@ export const REPO_LIST = gql`
             name
             id
           }
+          owner {
+            id
+            login
+            avatarUrl
+          }
           updatedAt
           stargazerCount
           viewerHasStarred
@@ -50,4 +55,4 @@ export const REPO_LIST = gql`
       }
     }
   }
-`
+`;
